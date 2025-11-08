@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tienda de Camisetas — Issebcamis</title>
+  <meta name="description" content="Tienda online de camisetas de fútbol — personaliza tu dorsal y añade parches oficiales." />
+
+  <!-- ✅ CSS externo -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <div class="logo">
+  <img src="images/ISC.jpg" alt="Logo ISC" />
+</div>
+        <div>
+          <h1>Issebcamis</h1>
+          <div class="small">Camisetas oficiales y personalizadas</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#conocenos">Conócenos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <div class="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M21 21l-4.35-4.35" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="11" cy="11" r="6" stroke="white" stroke-width="1.2"></circle></svg>
+          <input id="searchInput" placeholder="Buscar camiseta..." />
+        </div>
+        <button class="btn" onclick="openCart()">Carrito (<span id="cartCount">0</span>)</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="container" id="home">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="lead">Bienvenido a Issebcamis</div>
+        <h2>Tu tienda de camisetas de fútbol. Personaliza dorsales y añade parches oficiales.</h2>
+        <p>Encuentra equipaciones de clubes y selecciones de distintas temporadas. Añade nombre y número (dorsal), elige parches (Champions League, LaLiga, Serie A...) y recíbelo en tu domicilio.</p>
+        <div class="hero-cta">
+          <button class="btn" onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">Ver productos</button>
+          <a class="btn secondary" href="#contacto">Contacto</a>
+        </div>
+      </div>
+
+      <!-- ✅ PRODUCTO DEL MOMENTO -->
+      <aside class="hero-card">
+        <img class="preview-img" src="images/placeholder-hero.jpg" alt="Camiseta destacada" />
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+          <div>
+            <div class="small">Producto destacado</div>
+            <strong>Arsenal — Equipación alternativa 2025/26</strong>
+          </div>
+          <div style="text-align:right">
+            <div class="price">$1,299 MXN</div>
+            <div class="small">Envío 3-5 días</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos">
+      <div class="section-title">
+        <h2>Productos</h2>
+        <div class="small">Selecciona para ver detalles y personalizar</div>
+      </div>
+      <div class="grid" id="productGrid"><!-- Se inyectan via JS --></div>
+    </section>
+
+    <!-- CONÓCENOS -->
+    <section id="conocenos" style="margin-top:30px">
+      <h2>Conócenos</h2>
+      <p class="small">Issebcamis nació con la idea de juntar pasión por el fútbol y moda. Nos enfocamos en ofrecer camisetas de calidad, con opciones de personalización y parches oficiales. Misión: llevar la camiseta de tus sueños. Visión: ser la tienda de referencia en Latinoamérica para camisetas personalizadas y coleccionables.</p>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" style="margin-top:30px">
+      <h2>Contacto</h2>
+      <div class="contact-grid">
+        <div>
+          <p class="small">¿Dudas? Escríbenos o visítanos en nuestra tienda física.</p>
+          <form id="contactForm" onsubmit="handleContact(event)">
+            <label>Nombre</label>
+            <input type="text" id="cname" required />
+            <label>Email</label>
+            <input type="text" id="cemail" required />
+            <label>Mensaje</label>
+            <input type="text" id="cmsg" required />
+            <div style="margin-top:10px">
+              <button class="btn" type="submit">Enviar</button>
+            </div>
+          </form>
+        </div>
+        <div>
+          <div class="map" id="mapPlaceholder">
+  <img src="images/latinoamerica.jpg" alt="Mapa de Latinoamérica" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+</div>
+<div style="margin-top:8px;color:var(--muted);font-weight:600;text-align:center;">
+  🌎 Hacemos envíos a toda Latinoamérica
+</div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap">
+          <div>
+            <h3>FutbolShop</h3>
+            <p class="small">Productos originales y réplicas de alta calidad. Política de devoluciones, términos y aviso de privacidad disponibles.</p>
+          </div>
+          <div>
+            <h4>Enlaces</h4>
+            <div class="small">Inicio • Productos • Conócenos • Contacto • Términos • Aviso de privacidad</div>
+          </div>
+          <div>
+            <h4>Síguenos</h4>
+            <div class="socials">
+              <a href="#">Instagram</a>
+              <a href="#">Facebook</a>
+              <a href="#">X</a>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:20px;color:var(--muted);font-size:13px">© FutbolShop — Todos los derechos reservados</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- MODAL PRODUCTO -->
+  <div class="modal" id="productModal">
+    <div class="modal-dialog">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 id="pmTitle">Producto</h3>
+        <button onclick="closeModal()" class="btn secondary">Cerrar</button>
+      </div>
+      <div class="flex" style="margin-top:12px">
+        <div style="flex:1">
+          <img id="pmImg" src="images/placeholder.jpg" alt="img" style="width:100%;height:320px;object-fit:cover;border-radius:10px"/>
+        </div>
+        <div style="width:360px">
+          <div id="pmDesc" class="small">Descripción del producto</div>
+          <div style="margin-top:8px"><strong id="pmPrice">$0</strong></div>
+
+          <div style="margin-top:12px">
+            <label>Talla</label>
+            <select id="pmSize">
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+            </select>
+          </div>
+
+          <div style="margin-top:12px">
+            <label>Dorsal (Nombre)</label>
+            <input type="text" id="pmName" placeholder="Ej. Ronaldo" />
+          </div>
+          <div style="margin-top:12px">
+            <label>Dorsal (Número)</label>
+            <input type="number" id="pmNumber" placeholder="Ej. 7" min="0" max="99" />
+          </div>
+
+          <div style="margin-top:12px">
+            <label>Parches</label>
+            <div class="patches">
+              <label><input type="checkbox" value="Champions League" /> Champions League</label>
+              <label><input type="checkbox" value="LaLiga" /> LaLiga</label>
+              <label><input type="checkbox" value="Serie A" /> Serie A</label>
+              <label><input type="checkbox" value="Bundesliga" /> Bundesliga</label>
+            </div>
+            <div class="small" style="margin-top:6px">Selecciona los parches oficiales que quieras añadir (se cobrará extra).</div>
+          </div>
+
+          <div style="margin-top:14px;display:flex;gap:8px">
+            <button class="btn" onclick="addToCart()">Agregar al carrito</button>
+            <button class="btn secondary" onclick="closeModal()">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARRITO -->
+  <div class="cart" id="cartPane" style="display:none">
+    <h4>Carrito</h4>
+    <div id="cartItems"></div>
+    <div class="totals"><div>Total</div><div id="cartTotal">$0</div></div>
+    <div style="margin-top:10px;display:flex;gap:8px">
+      <button class="btn" onclick="checkout()">Pagar</button>
+      <button class="btn secondary" onclick="clearCart()">Vaciar</button>
+    </div>
+  </div>
+
+  <!-- ✅ SOLO 1 SCRIPT (el externo) -->
+  <script src="app.js"></script>
+</body>
+</html>
